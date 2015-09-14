@@ -31,13 +31,13 @@ $(document).ready(function() {
       var inputtedCity = $(this).find("input.new-city").val();
       var inputtedState = $(this).find("input.new-state").val();
 
-      var newAddress = { street: inputtedStreet, city: inputtedCity: state: inputtedState };
-      newContact.address.push(newAddress);
+      var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
+      newContact.addresses.push(newAddress);
     });
 
     $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
 
-    $("contact").last().click(function() {
+    $(".contact").last().click(function() {
       $("#show-contact").show();
 
       $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address){
-        $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
+        $("ul#addresses").append("<li>" + address.street + ". " + address.city + ", " + address.state + "</li>");
       });
     });
 
