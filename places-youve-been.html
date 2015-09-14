@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Trips</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Your Trips</h1>
+
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Add a Trip:</h2>
+          <form id="new-trip">
+            <div class="form-group">
+              <label for="new-place">Place</label>
+              <input type="text" class="form-control" id="new-place">
+            </div>
+
+            <div id="new-details">
+              <div class="new-detail">
+                <div class="form-group">
+                  <label for="new-spot">Spot</label>
+                  <input type="text" class="form-control new-spot">
+                </div>
+                <div class="form-group">
+                  <label for="new-landmark">Landmark</label>
+                  <input type="text" class="form-control new-landmark">
+                </div>
+                <div class="form-group">
+                  <label for="new-season">Season</label>
+                  <input type="text" class="form-control new-season">
+                </div>
+                <div class="form-group">
+                  <label for="new-notes">Notes</label>
+                  <input type="text" class="form-control new-notes">
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn">Add</button>
+          </form>
+
+        </div>
+
+          <h2>Trips:</h2>
+          <ul id="trips">
+
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <div id="show-trip">
+            <h2></h2>
+
+            <ul id="details">
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

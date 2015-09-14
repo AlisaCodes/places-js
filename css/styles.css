@@ -1,33 +1,10 @@
-h1, h2 {
-  font-family: 'Raleway', sans-serif;
-}
 
-body {
-  background-color: #27c579;
-}
 
-#show-contact {
-  desplay: none;
-}
-
-.contact {
+#trips {
   cursor: pointer;
   color: #0088cc;
 }
 
-.contact:hover {
+#trips:hover {
   text-decoration: underline;
-}
-
-.info {
-  padding: 20px;
-}
-
-.form-control {
-  border-radius: 15px;
-}
-
-.btn {
-  border-radius: 25px;
-  margin: 10px;
 }

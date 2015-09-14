@@ -1,61 +1,61 @@
 $(document).ready(function() {
-  $("#add-address").click(function() {
-    $("#new-addresses").append('<div class="new-address">' +
+  $("#add-detail").click(function() {
+    $("#new-details").append('<div class="new-detail">' +
                                  '<div class="form-group">' +
-                                   '<label for="new-street">Street</label>' +
-                                   '<input type="text" class="form-control new-street">' +
+                                   '<label for="new-spot">Spot</label>' +
+                                   '<input type="text" class="form-control new-spot">' +
                                  '</div>' +
                                  '<div class="form-group">' +
-                                   '<label for="new-city">City</label>' +
-                                   '<input type="text" class="form-control new-city">' +
+                                   '<label for="new-landmark">Landmark</label>' +
+                                   '<input type="text" class="form-control new-landmark">' +
                                  '</div>' +
                                  '<div class="form-group">' +
-                                   '<label for="new-state">State</label>' +
-                                   '<input type="text" class="form-control new-state">' +
+                                   '<label for="new-season">Season</label>' +
+                                   '<input type="text" class="form-control new-season">' +
+                                 '</div>' +
+                                 '<div class="form-group">' +
+                                   '<label for="new-notes">Notes</label>' +
+                                   '<input type="text" class="form-control new-notes">' +
                                  '</div>' +
                                '</div>');
   });
 
-  $("form#new-contact").submit(function(event) {
+  $("form#new-trip").submit(function(event) {
     event.preventDefault();
 
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
+    var inputtedPlace = $("input#new-place").val();
 
-    var newContact = { firstName: inputtedFirstName, lastName: inputtedLastName, addresses: []
-    };
+    var newTrip = { place: inputtedPlace, details: [] };
 
+    $(".new-detail").each(function() {
+      var inputtedSpot = $(this).find("input.new-spot").val();
+      var inputtedLandmark = $(this).find("input.new-landmark").val();
+      var inputtedSeason = $(this).find("input.new-season").val();
+      var inputtedNotes = $(this).find("input.new-notes").val();
 
-    $(".new-address").each(function() {
-      var inputtedStreet = $(this).find("input.new-street").val();
-      var inputtedCity = $(this).find("input.new-city").val();
-      var inputtedState = $(this).find("input.new-state").val();
-
-      var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
-      newContact.addresses.push(newAddress);
+      var newDetail = { spot: inputtedSpot, landmark: inputtedLandmark, season: inputtedSeason, notes: inputtedNotes };
+      newTrip.details.push(newDetail);
     });
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.firstName + " " + newContact.lastName + "</span></li>");
+    $("ul#trips").append("<li><span class='trip'>" + newTrip.place + "</span></li>");
 
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
+    $(".trip").last().click(function() {
+      $("#show-trip").show();
 
-      $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
-      $(".first-name").text(newContact.firstName);
-      $(".last-name").text(newContact.lastName);
+      $("#show-trip h2").text(newTrip.place);
+      $(".place").text(newTrip.place);
 
-
-      $("ul#addresses").text("");
-      newContact.addresses.forEach(function(address){
-        $("ul#addresses").append("<li>" + address.street + ". " + address.city + ", " + address.state + "</li>");
+      $("ul#details").text("");
+      newTrip.details.forEach(function(detail) {
+        $("ul#details").append("<li>spot: " + detail.spot + "</li><li>landmark: " + detail.landmark + "</li><li>season: " + detail.season + "</li><li>notes: " + detail.notes);
       });
     });
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input#new-street").val("");
-    $("input#new-city").val("");
-    $("input#new-state").val("");
+    $("input#new-place").val("");
+    $("input.new-spot").val("");
+    $("input.new-landmark").val("");
+    $("input.new-season").val("");
+    $("input.new-notes").val("");
 
   });
 });
